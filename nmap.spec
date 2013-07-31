@@ -1,14 +1,14 @@
 Summary:	Network exploration tool and security scanner
 Name:		nmap
-Version:	6.25
+Version:	6.40
 Release:	1
 License:	GPL with exception
 Group:		Networking
 Source0:	http://nmap.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	fcc80f94ff3adcb11eedf91092ea6f5e
+# Source0-md5:	c0e2f3370e1fb97fb53185b15aa22aff
+Patch0:		%{name}-link.patch
 URL:		http://www.insecure.org/nmap/index.html
 BuildRequires:	libstdc++-devel
-BuildRequires:	lua-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pcre-devel
 Requires:	ca-certificates
@@ -39,6 +39,7 @@ This package includes graphical frontends for nmap.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
@@ -60,7 +61,6 @@ ln -sf /etc/certs/ca-certificates.crt $RPM_BUILD_ROOT/%{_datadir}/ncat/ca-bundle
 rm -f $RPM_BUILD_ROOT%{_bindir}/uninstall_zenmap
 
 # fix locale names
-mv $RPM_BUILD_ROOT%{_mandir}/{jp,ja}
 mv $RPM_BUILD_ROOT%{_mandir}/pt{_PT,}
 mv $RPM_BUILD_ROOT%{_mandir}/zh{,_CN}
 
