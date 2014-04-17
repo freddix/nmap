@@ -1,11 +1,11 @@
 Summary:	Network exploration tool and security scanner
 Name:		nmap
-Version:	6.40
+Version:	6.45
 Release:	1
 License:	GPL with exception
 Group:		Networking
 Source0:	http://nmap.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	c0e2f3370e1fb97fb53185b15aa22aff
+# Source0-md5:	e8c337456a692bada3ee53e7f5b87bac
 Patch0:		%{name}-link.patch
 URL:		http://www.insecure.org/nmap/index.html
 BuildRequires:	libstdc++-devel
