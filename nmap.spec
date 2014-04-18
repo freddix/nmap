@@ -1,12 +1,11 @@
 Summary:	Network exploration tool and security scanner
 Name:		nmap
-Version:	6.45
+Version:	6.46
 Release:	1
 License:	GPL with exception
 Group:		Networking
 Source0:	http://nmap.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8c337456a692bada3ee53e7f5b87bac
-Patch0:		%{name}-link.patch
+# Source0-md5:	5a36ad3a63d5b7ea5514f745a397436a
 URL:		http://www.insecure.org/nmap/index.html
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
@@ -39,7 +38,6 @@ This package includes graphical frontends for nmap.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %configure
@@ -76,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nping
 %{_datadir}/nmap
 %{_datadir}/ncat
+%{py_sitescriptdir}/ndiff.py[co]
 %{_mandir}/man1/ncat.1*
 %{_mandir}/man1/ndiff.1*
 %{_mandir}/man1/nmap.1*
