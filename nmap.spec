@@ -1,11 +1,11 @@
 Summary:	Network exploration tool and security scanner
 Name:		nmap
-Version:	6.46
-Release:	1
+Version:	6.47
+Release:	2
 License:	GPL with exception
 Group:		Networking
 Source0:	http://nmap.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	5a36ad3a63d5b7ea5514f745a397436a
+# Source0-md5:	edfe81f6763223c0a29bfa15a8526e2a
 URL:		http://www.insecure.org/nmap/index.html
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_postclean
 
-ln -sf /etc/certs/ca-certificates.crt $RPM_BUILD_ROOT/%{_datadir}/ncat/ca-bundle.crt
+ln -sf /etc/ssl/certs/ca-certificates.crt $RPM_BUILD_ROOT/%{_datadir}/ncat/ca-bundle.crt
 
 # remove unneeded files
 rm -f $RPM_BUILD_ROOT%{_bindir}/uninstall_zenmap
